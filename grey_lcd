@@ -81,7 +81,7 @@ INICIO
     BCF PORTC,0		;command mode
     CALL time
     
-    MOVLW 0x80		;LCD position
+    MOVLW 0x80		;LCD position PRIMER RENGLON
     MOVWF PORTD
     CALL exec
     
@@ -99,16 +99,17 @@ INICIO
     MOVLW 'n'
     MOVWF PORTD
     CALL exec
+   
     
-    MOVLW 'a'
+    MOVLW '-'
     MOVWF PORTD
     CALL exec
     
-    MOVLW 'r'
+    MOVLW '-'
     MOVWF PORTD
     CALL exec
     
-    MOVLW 'y'
+    MOVLW '-'
     MOVWF PORTD
     CALL exec
     
@@ -117,8 +118,18 @@ INICIO
     CALL exec
     
     MOVLW b'111110'
+   MOVWF PORTD
+    CALL exec
+    
+      BCF PORTC,0		;command mode
+    CALL time
+    
+    MOVLW 0x88		;LCD position POSICION NUMEROS ABAJO
     MOVWF PORTD
     CALL exec
+    
+    BSF PORTC,0		;data mode
+    CALL time
     
     
     BTFSS PORTA,7
@@ -166,7 +177,7 @@ INICIO
     BCF PORTC,0		;command mode
     CALL time
     
-    MOVLW 0xC0		;LCD position
+    MOVLW 0xC0		;LCD position SEGUNDO RENGLON 
     MOVWF PORTD
     CALL exec
 
@@ -207,7 +218,7 @@ INICIO
     BCF PORTC,0		;command mode
     CALL time
     
-    MOVLW 0xC8		;LCD position
+    MOVLW 0xC8		;LCD position POSICION NUMEROS ABAJO
     MOVWF PORTD
     CALL exec
     
